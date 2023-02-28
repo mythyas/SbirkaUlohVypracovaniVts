@@ -20,7 +20,7 @@ namespace SbirkaUlohVTS
                 return false;
             if (cislo == 2)
                 return true;
-            for (int i = 2; i < Math.Pow(cislo, 1/2.0); i++)
+            for (int i = 2; i <= Math.Pow(cislo, 1/2.0); i++)
             {
                 if (cislo % i == 0)
                     return false;
@@ -39,7 +39,7 @@ namespace SbirkaUlohVTS
                 if (!uint.TryParse(cislo, out hodnota))
                     continue;
                 if(JePrvocislo(hodnota))
-                    Console.WriteLine(cislo);
+                    Console.WriteLine(hodnota);
             }
             Console.ReadLine();
         }
