@@ -14,7 +14,33 @@ namespace SbirkaUlohVTS
     {
         static void Main(string[] args)
         {
-            FileStream fs = new FileStream()
+            string adresa = @"u:\temp\řádekpořádku.txt";
+            string adresa2 = @"u:\temp\kopie.txt";
+            FileStream original = new FileStream(adresa, FileMode.Open);
+            FileStream kopie = new FileStream(adresa2, FileMode.Create);
+            StreamReader sr = new StreamReader(original);
+            StreamWriter sw = new StreamWriter(kopie);
+
+            StringBuilder text = new StringBuilder();
+            int pismeno;
+            while ((pismeno = sr.Read()) != -1)
+            {
+                if (pismeno >= 48 || pismeno <= 57)
+                    continue;
+                if ((char)pismeno == ' ')
+                {
+                    text.Append("\n");
+                    continue;
+                }
+                text.Append(((char)pismeno).ToString().ToLower());
+            }
+            sw.Write(text.ToString());
+            sw.Flush();
+            sw.Close();
+            sr.Close();
+            original.Close();
+            kopie.Close();
+            
         }
     }
 }
