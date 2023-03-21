@@ -14,8 +14,8 @@ namespace SbirkaUlohVTS
     {
         static void Main(string[] args)
         {
-            string adresa = @"u:\temp\řádekpořádku.txt";
-            string adresa2 = @"u:\temp\kopie.txt";
+            string adresa = @"\\regulus2\users$\xott\temp\řádekpořádku.txt";
+            string adresa2 = @"\\regulus2\users$\xott\temp\kopie.txt";
             FileStream original = new FileStream(adresa, FileMode.Open);
             FileStream kopie = new FileStream(adresa2, FileMode.Create);
             StreamReader sr = new StreamReader(original);
@@ -25,7 +25,7 @@ namespace SbirkaUlohVTS
             int pismeno;
             while ((pismeno = sr.Read()) != -1)
             {
-                if (pismeno >= 48 || pismeno <= 57)
+                if (pismeno >= 48 && pismeno <= 57)
                     continue;
                 if ((char)pismeno == ' ')
                 {
