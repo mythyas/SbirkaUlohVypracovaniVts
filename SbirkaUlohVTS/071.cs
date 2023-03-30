@@ -20,7 +20,7 @@ namespace SbirkaUlohVTS
             for (int i = 0; i < 3; i++)
             {
                 Console.Write("{0}: ", (char)(a + i));
-                int[i] = int.Parse(Console.ReadLine());
+                hodnoty[i] = int.Parse(Console.ReadLine());
             }
             //pole s a, b, c
 
@@ -37,7 +37,21 @@ namespace SbirkaUlohVTS
                 }
             }
 
+            bool trojuhelnik = hodnoty[0] < (hodnoty[1] + hodnoty[2]);
+            string text = "netvoří trojúhelník.";
 
+            if (trojuhelnik)
+            {
+                text = "tvoří ";
+                if(Math.Pow(hodnoty[0], 2) == Math.Pow(hodnoty[1], 2) + Math.Pow(hodnoty[2], 2))
+                {
+                    text += "pravoúhlý ";
+                }
+                text += "trojúhelník";
+            }
+
+            Console.WriteLine("Vámi zadané hodnoty " + text);
+            Console.ReadLine();
         }
     }
 }
