@@ -25,7 +25,22 @@ namespace SbirkaUlohVTS
                 }
                 cisla.Add(pom);
             }
-
+            int nejvyssi = int.MinValue;
+            int pocitadlo = 0;
+            foreach (int cislo in cisla)
+            {
+                if (cislo>nejvyssi)
+                {
+                    nejvyssi = cislo;
+                    pocitadlo = 1;
+                }
+                else if(cislo == nejvyssi)
+                {
+                    pocitadlo++;
+                }
+            }
+            Console.WriteLine("Nejvyšší číslo v posloupnosti je {0}.\nToto číslo se v posloupnosti vyskytuje {1} krát.", nejvyssi, pocitadlo);
+            Console.ReadLine();
         }
     }
 }
